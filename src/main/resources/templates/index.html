@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>챗봇</title>
+</head>
+<body>
+<h3>질문 입력 영역</h3>
+<p>
+    <!-- <a
+    href='http://localhost:9000/chatbot?questions=12%EC%8B%9C'>링크 이용</a> -->
+    <a
+            href='http://192.168.20.105:9000/chatbot?question=12%EC%8B%9C'>링크 이용</a>
+</p>
+<p>
+    ajax 이용
+    <input type="text" id="question">
+    <input type="button" id="chatbotbtn" value="챗본 전송"/>
+</p>
+</body>
+<script>
+    window.addEventListener("load", function (e) {
+        var question = document.getElementById("question");
+        var chatbotbtn = document.getElementById("chatbotbtn");
+        chatbotbtn.addEventListener('click', function (e) {
+            var request;
+            request = new XMLHttpRequest();
+            var queryString = "chatbot?question=" + question.value;
+            request.open('GET', queryString, true);
+            request.send('');
+            request.addEventListener('load', function () {
+                alert(JSON.parse(request.responseText).answer);
+            });
+        });
+    });
+</script>
+</html>
