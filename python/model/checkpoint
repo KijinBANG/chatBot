@@ -1,0 +1,2 @@
+model_checkpoint_path: "chatmodel-attention-checkpoint.ckpt"
+all_model_checkpoint_paths: "chatmodel-attention-checkpoint.ckpt"
